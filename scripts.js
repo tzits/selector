@@ -1,4 +1,4 @@
-console.log('app.js loaded!')
+console.log('logic checked')
 
 angular
   .module('selector', [])
@@ -6,59 +6,41 @@ angular
 
 function ListController($scope) {
 	var vm = this;
-	vm.value = "asdf"
+	vm.array = "List Names Here Separated By Commas"
 	vm.include = true
-	console.log(vm.value)
 	vm.text = "How Many Teams Should There Be?"
 	vm.num = 2
+	vm.listType
+	vm.finalArray = []
+
 	$scope.pushed = function() {
-		vm.num = 
 		alert(vm.num)
 	}
-	$scope.setValue = function(val) {
-		vm.value = val
-		console.log(vm.value)
-		if (vm.value == "pairs") {
+
+	$scope.setValue = function() {
+		if (vm.listType == "pairs") {
 			vm.text = "How Many People Per Group?"
 		} else {
-			vm.text = "How Many Teams Should there be?"
+			vm.text = "How Many Teams Should There Be?"
 		}
-	}
-	
-	$scope.setNum = function() {
-		console.log("num")
 	}
 	
 	$scope.generate = function() {
-		if (vm.value == "pairs") {
-			var x = 0
-			var name = ""
-				while (x < 2) {
-				var length = array.length
-				var i = Math.floor(Math.random() * length)
-				name = name + " " + array[i]
-				var length = length -1
-				array.splice(i, 1)
-				x ++
-			}
-		console.log(name)
+		var myArray = vm.array.split(",")
+		console.log(myArray)
+		if (vm.listType == "pairs") {
+			console.log('pairs')
+
+		} 
+		else {
+			console.log('teams')
 		}
+		// if (vm.value == "pairs") {
+			
+		// 	}
+		// console.log(name)
+		// }
 	}
 
 
 }
-
-function randomName() {
-	var x = 0
-	var name = ""
-	while (x < 2) {
-		var length = array.length
-		var i = Math.floor(Math.random() * length)
-		name = name + " " + array[i]
-		var length = length -1
-		array.splice(i, 1)
-		x ++
-	}
-	console.log(name)
-}
-
