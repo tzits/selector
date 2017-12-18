@@ -12,3 +12,7 @@ function randomName() {
 	}
 	console.log(name)
 }
+
+function pushed() {
+	alert("pushed")
+}

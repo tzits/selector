@@ -2,11 +2,23 @@
 <html>
 <head>
 	<title>selector</title>
-	<link rel=¨stylesheet¨ type=¨text/css¨ href=¨style.css¨>
-	<script src="scripts.js"></script>
+	<link rel=¨stylesheet¨ type=¨text/css¨ href=¨./style.css¨>
+	<script src="./scripts.js"></script>
 
 </head>
 <body>
-
+	<style type="text/css">
+	#no {
+		width:30px;
+	}
+</style>
+	<textarea placeholder="type names here"></textarea><br>
+	<h3>Do you want to choose a number of teams or people per group?</h3>
+	<input type="radio" name="selection" value="teams">Teams
+	<input type="radio" name="selection" value="pairs">Groups<br>
+	<input type="number" name="number" id="no">Number of Teams<br>
+	<input type="checkbox" name="include">If uneven make sure everyone's on a team?<br>
+	<button onclick="pushed()">Push Me</button>
 </body>
 </html>
+
