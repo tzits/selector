@@ -6,12 +6,13 @@ angular
 
 function ListController($scope) {
 	var vm = this;
-	vm.array = "List Names Here Separated By Commas"
-	vm.include = true
-	vm.text = "How Many Teams Should There Be?"
-	vm.num = 2
-	vm.listType
-	vm.finalArray = []
+	vm.array = [];
+	vm.include = true;
+	vm.text = "How Many People Per Group?";
+	vm.num = 2;
+	vm.listType;
+	vm.finalArray = [];
+	vm.listType = "pairs";
 
 	$scope.pushed = function() {
 		alert(vm.num)
@@ -48,7 +49,7 @@ function ListController($scope) {
 					x ++
 				}
 			}
-			if (myArray.length != 0) {
+			if (myArray.length != 0 && vm.include == true) {
 				console.log('avril')
 				for (var i = 0; i < myArray.length; i++) {
 					myRealArray[i] = myRealArray[i] + " " + myArray[i]
@@ -59,6 +60,27 @@ function ListController($scope) {
 		} 
 		else {
 			console.log('teams')
+			// // array creation
+			// for (var i = 0; i < vm.num; i ++) {
+			// 	var array = []
+			// 	console.log('we made an array!')
+			// }
+			var teamOne = []
+			var teamTwo = []
+			var length = myArray.length
+			for (var i = 0; i < length; i++) {
+				var nL = myArray.length
+				var math = Math.floor(Math.random()* nL)
+				if (i % 2 == 0) {
+					teamOne.push(myArray[math]);
+				} else {
+					teamTwo.push(myArray[math]);
+				}
+				myArray.splice(math,1)
+			}
+			console.log(teamOne)
+			console.log(teamTwo)
+
 		}
 		// if (vm.value == "pairs") {
 			

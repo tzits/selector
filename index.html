@@ -22,10 +22,10 @@
 	}
 </style>
 	<div ng-controller="ListController as listCtrl">
-		<textarea ng-model=listCtrl.array>{{listCtrl.array}}</textarea><br>
+		<textarea ng-model=listCtrl.array placeholder="List Names Here Separated By Commas">{{listCtrl.array}}</textarea><br>
 		<h3>Do you want to choose a number of teams or people per group?</h3>
 		<input type="radio" ng-model=listCtrl.listType ng-change="setValue()" ng-model="listCtrl.value" value="teams">Teams<br>
-		<input type="radio" ng-model=listCtrl.listType ng-change="setValue()" ng-model="listCtrl.value" value="pairs">Groups<br>
+		<input type="radio" ng-model=listCtrl.listType ng-change="setValue()" ng-model="listCtrl.value" value="pairs">Small Groups<br>
 		<input type="number" name="input" id="no" ng-model=listCtrl.num>{{listCtrl.text}}<br>
 		<input type="checkbox" ng-model="listCtrl.include">If uneven make sure everyone's on a team?<br>
 
