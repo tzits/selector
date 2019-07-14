@@ -11,7 +11,7 @@ function ListController($scope) {
 	vm.text = "How Many People Per Group?";
 	vm.num = 2;
 	vm.listType;
-	vm.finalArray = [];
+	vm.finalArray = "";
 	vm.listType = "pairs";
 
 	$scope.pushed = function() {
@@ -56,30 +56,40 @@ function ListController($scope) {
 				}
 			}
 			console.log(myRealArray)
+			//looks terrible
+			var stringy = ""
+			for (i=0; i < myRealArray.length -1 ; i++ ) {
+				stringy += myRealArray[i] + " vs "
+			}
+			stringy += myRealArray[myRealArray.length-1]
+			vm.finalArray = stringy
 
 		} 
 		else {
 			console.log('teams')
-			// // array creation
-			// for (var i = 0; i < vm.num; i ++) {
-			// 	var array = []
-			// 	console.log('we made an array!')
-			// }
-			var teamOne = []
-			var teamTwo = []
-			var length = myArray.length
-			for (var i = 0; i < length; i++) {
-				var nL = myArray.length
-				var math = Math.floor(Math.random()* nL)
-				if (i % 2 == 0) {
-					teamOne.push(myArray[math]);
-				} else {
-					teamTwo.push(myArray[math]);
-				}
-				myArray.splice(math,1)
+
+			var teams = []
+			for (i = 0; i < vm.num; i ++) {
+				teams[i] = []
 			}
-			console.log(teamOne)
-			console.log(teamTwo)
+
+			var length = myArray.length
+			for (var i = 0; i < length; i += teams.length) {
+				for (var j = 0; j < teams.length; j ++) {
+					var tlength = myArray.length
+					var k = Math.floor(Math.random() * tlength)
+					teams[j].push(myArray[k])
+					myArray.splice(k,1)
+				}
+
+			}
+			var stringy = ""
+			for (i=0; i < teams.length -1 ; i++ ) {
+				stringy += teams[i] + " vs "
+			}
+			stringy += teams[teams.length-1]
+			vm.finalArray = stringy
+			console.log(teams)
 
 		}
 		// if (vm.value == "pairs") {
