@@ -17,17 +17,39 @@
 </head>
 <body>
 	<style type="text/css">
+
+	.main {
+		font-size: 1.3em;
+		text-align: center;
+	}
 	#no {
 		width:30px;
+		margin-bottom: .7em;
+	}
+	#area {
+		width: 80vw;
+	    height: 20vh;
+	    margin-right: 10vw;
+	    margin-left: 10vw;
+	    font-size: 1.3em;
+	    margin-bottom: .7em;
+	}
+	#heading {
+		margin-bottom: .7em;
+		text-align: center;
+		font-size: 1.3em;
+	}
+	#choice {
+		margin-bottom: .7em;
+		text-align: center;
+		font-size: 1.3em
 	}
 </style>
-	<div ng-controller="ListController as listCtrl">
-		<textarea ng-model=listCtrl.array placeholder="List Names Here Separated By Commas">{{listCtrl.array}}</textarea><br>
-		<h3>Do you want to choose a number of teams or people per group?</h3>
-		<input type="radio" ng-model=listCtrl.listType ng-change="setValue()" ng-model="listCtrl.value" value="teams">Teams<br>
-		<input type="radio" ng-model=listCtrl.listType ng-change="setValue()" ng-model="listCtrl.value" value="pairs">Small Groups<br>
+	<div class="main" ng-controller="ListController as listCtrl">
+		<textarea id="area" ng-model=listCtrl.array placeholder="List Names Here Separated By Commas">{{listCtrl.array}}</textarea><br>
+		<h2 id="heading">Do you want to choose a number of teams or number of people per group?</h3>
+		<div id="choice"><input type="radio" ng-model=listCtrl.listType ng-change="setValue()" ng-model="listCtrl.value" value="teams">Teams   <input type="radio" ng-model=listCtrl.listType ng-change="setValue()" ng-model="listCtrl.value" value="groups">Small Groups</div>
 		<input type="number" name="input" id="no" ng-model=listCtrl.num>{{listCtrl.text}}<br>
-		<input type="checkbox" ng-model="listCtrl.include">If uneven make sure everyone's on a team?<br>
 
 		<button ng-click='generate()'>Push Me</button>
 		<span>{{listCtrl.finalArray}}</span>

@@ -12,14 +12,10 @@ function ListController($scope) {
 	vm.num = 2;
 	vm.listType;
 	vm.finalArray = "";
-	vm.listType = "pairs";
-
-	$scope.pushed = function() {
-		alert(vm.num)
-	}
+	vm.listType = "groups";
 
 	$scope.setValue = function() {
-		if (vm.listType == "pairs") {
+		if (vm.listType == "groups") {
 			vm.text = "How Many People Per Group?"
 		} else {
 			vm.text = "How Many Teams Should There Be?"
@@ -29,8 +25,8 @@ function ListController($scope) {
 	$scope.generate = function() {
 		var myArray = vm.array.split(",")
 		console.log(myArray)
-		if (vm.listType == "pairs") {
-			console.log('pairs and ' + vm.num)
+		if (vm.listType == "groups") {
+			console.log('groups and ' + vm.num)
 			var myRealArray = []
 			while (myArray.length > 1) {
 				var x = 0
@@ -56,7 +52,7 @@ function ListController($scope) {
 				}
 			}
 			console.log(myRealArray)
-			//looks terrible
+
 			var stringy = ""
 			for (i=0; i < myRealArray.length -1 ; i++ ) {
 				stringy += myRealArray[i] + " vs "
@@ -92,11 +88,7 @@ function ListController($scope) {
 			console.log(teams)
 
 		}
-		// if (vm.value == "pairs") {
-			
-		// 	}
-		// console.log(name)
-		// }
+
 	}
 
 
